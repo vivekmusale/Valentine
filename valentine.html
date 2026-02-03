@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Dipti ❤️</title>
+
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: url('dipti.jpg') no-repeat center center/cover;
+        font-family: 'Segoe UI', sans-serif;
+        overflow: hidden;
+    }
+
+
+    .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .card {
+        background: rgba(255,255,255,0.95);
+        padding: 40px 50px;
+        border-radius: 25px;
+        text-align: center;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        animation: fadeIn 1.2s ease;
+    }
+
+
+    h1 {
+        color: #e63946;
+        font-size: 2.5rem;
+    }
+
+
+    p {
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 25px;
+    }
+
+
+    .heart {
+        font-size: 60px;
+        animation: beat 1s infinite;
+    }
+
+
+    .buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+
+
+    button {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+
+    #yesBtn {
+        background: #e63946;
+        color: white;
+    }
+
+
+    #yesBtn:hover {
+        transform: scale(1.1);
+    }
+
+
+    #noBtn {
+        background: #ffd6d6;
+        position: absolute;
+    }
+
+
+    @keyframes beat {
+        0%,100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+
+    /* Floating hearts */
+    .floating-heart {
+        position: absolute;
+        bottom: -20px;
+        font-size: 24px;
+        animation: floatUp 6s linear infinite;
+        opacity: 0.7;
+    }
+
+
+    @keyframes floatUp {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(-100vh); opacity: 0; }
+    }
+</style>
+</head>
+
+
+<body>
+
+
+<!-- Romantic Music -->
+<audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_98f2d5d5b4.mp3" type="audio/mpeg">
+</audio>
+
+
+<div class="overlay">
+    <div class="card">
+        <div class="heart">❤️</div>
+        <h1>Dipti, Will You Be My Valentine?</h1>
+        <p>You are my favorite place to be 💕</p>
+
+
+        <div class="buttons">
+            <button id="yesBtn" onclick="yesClicked()">Yes 💖</button>
+            <button id="noBtn" onmouseover="moveNo()">No 😜</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+const noBtn = document.getElementById("noBtn");
+
+
+function moveNo() {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+
+function yesClicked() {
+    document.body.innerHTML = `
+        <div style="
+            height:100vh;
+            background: url('dipti.jpg') no-repeat center/cover;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            color:white;
+            font-family:'Segoe UI',sans-serif;
+        ">
+            <div style="background:rgba(0,0,0,0.6); padding:40px; border-radius:25px;">
+                <h1 style="font-size:3rem;">She Said YES 💍❤️</h1>
+                <p style="font-size:1.5rem;">My forever starts with you, Dipti 🥰</p>
+            </div>
+        </div>
+    `;
+}
+
+
+// Create floating hearts
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "floating-heart";
+    heart.innerText = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (20 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+
+
+    setTimeout(() => heart.remove(), 6000);
+}, 500);
+</script>
+
+
+</body>
+</html>
